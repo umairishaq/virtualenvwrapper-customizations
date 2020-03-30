@@ -1,0 +1,21 @@
+#!/bin/bash
+# This hook is run after a new project is activated.
+
+VENV_FILE_EXTENSION=.venv
+REQUIREMENTS_FILE=requirements.txt
+VENV_FILE_EXTENSION=.venv
+REQUIREMENTS_SOURCE=$WORKON_HOME/virtualenvwrapper-customizations
+
+if [[ -n $VIRTUAL_ENV && ! -f "./$VENV_FILE_EXTENSION" ]]; then
+    echo $(basename $VIRTUAL_ENV) > ./$VENV_FILE_EXTENSION
+fi
+
+if [[ ! -f "./$REQUIREMENTS_FILE" ]]; then
+    if [ -f "$REQUIREMENTS_SOURCE/$REQUIREMENTS_FILE" ]; then
+			cp $REQUIREMENTS_SOURCE/$REQUIREMENTS_FILE ./
+		else
+			touch ./$REQUIREMENTS_FILE
+    fi
+fi
+
+pip install -r ./$REQUIREMENTS_FILE
