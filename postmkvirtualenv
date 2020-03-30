@@ -9,10 +9,8 @@ PROJECT_LINK=$VIRTUAL_ENV/$VIRTUALENVWRAPPER_PROJECT_FILENAME
 if [[ -f "$PROJECT_LINK" ]]; then
 	PROJECT_FOLDER=$(cat $PROJECT_LINK)
 
-	if [[ -n $VIRTUAL_ENV && -n $VIRTUALENVWRAPPER_PROJECT_FILENAME ]]; then
-			VENV_FILE_LOCATION=$PROJECT_FOLDER/$VENV_FILE_EXTENSION
-			echo $(basename $VIRTUAL_ENV) > $VENV_FILE_LOCATION
-	fi
+	VENV_FILE_LOCATION=$PROJECT_FOLDER/$VENV_FILE_EXTENSION
+	echo $(basename $VIRTUAL_ENV) > $VENV_FILE_LOCATION
 
 	if [[ -n $PROJECT_FOLDER && ! -f "$PROJECT_FOLDER/$REQUIREMENTS_FILE" ]]; then
 		if [ -f "$REQUIREMENTS_SOURCE/$REQUIREMENTS_FILE" ]; then
@@ -20,8 +18,13 @@ if [[ -f "$PROJECT_LINK" ]]; then
 		else
 			touch $PROJECT_FOLDER/$REQUIREMENTS_FILE
 		fi
+	fi
 
-		pip install -r $PROJECT_FOLDER/$REQUIREMENTS_FILE
+	pip install -r $PROJECT_FOLDER/$REQUIREMENTS_FILE
+
+	if [[ -n $PROJECT_FOLDER && -f "$REQUIREMENTS_SOURCE/settings.json" ]]; then
+		mkdir $PROJECT_FOLDER/.vscode
+		cat $REQUIREMENTS_SOURCE/settings.json | jq --arg venv "$VIRTUAL_ENV/bin/python" '.["python.pythonPath"] |= $venv' > $PROJECT_FOLDER/.vscode/settings.json
 	fi
 fi
 

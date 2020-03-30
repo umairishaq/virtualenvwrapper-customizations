@@ -19,3 +19,8 @@ if [[ ! -f "./$REQUIREMENTS_FILE" ]]; then
 fi
 
 pip install -r ./$REQUIREMENTS_FILE
+
+if [[ -n $VIRTUAL_ENV && -f "$REQUIREMENTS_SOURCE/settings.json" ]]; then
+    mkdir .vscode
+    cat $REQUIREMENTS_SOURCE/settings.json | jq --arg venv "$VIRTUAL_ENV/bin/python" '.["python.pythonPath"] |= $venv' > .vscode/settings.json
+fi
