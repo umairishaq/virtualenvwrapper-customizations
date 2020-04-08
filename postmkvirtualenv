@@ -26,5 +26,9 @@ if [[ -f "$PROJECT_LINK" ]]; then
 		mkdir $PROJECT_FOLDER/.vscode
 		cat $REQUIREMENTS_SOURCE/settings.json | jq --arg venv "$VIRTUAL_ENV/bin/python" '.["python.pythonPath"] |= $venv' > $PROJECT_FOLDER/.vscode/settings.json
 	fi
+
+	if [[ -f "$REQUIREMENTS_SOURCE/launch.json" && -n $PROJECT_FOLDER/.vscode ]]; then
+		cp $REQUIREMENTS_SOURCE/launch.json $PROJECT_FOLDER/.vscode/launch.json
+	fi
 fi
 
