@@ -5,13 +5,42 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
             "name": "Python: Specific File",
             "type": "python",
             "request": "launch",
-            "program": "/Users/umishaq/code/python_workspace/ecr-scanning-test/setup.py",
+            // "env": {
+            //     "PYTHONPATH": "${workspaceFolder}/src/D3CandidationGenerationPython/src"
+            // },
+            "program": "${workspaceFolder}/setup.py",
             "console": "integratedTerminal",
             "args": ["develop"],
-            "justMyCode": false
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
+            "name": "Python: test",
+            "type": "python",
+            "request": "launch",
+            // "env": {
+            //     "PYTHONPATH": "${workspaceFolder}/src/D3CandidationGenerationPython/src"
+            // },
+            "cwd": "${workspaceFolder}/src/D3CandidationGenerationPython",
+            "console": "integratedTerminal",
+            "module": "pytest",
+            "justMyCode": false,
+            "stopOnEntry": false,
+            "args": [
+                "--no-cov"
+            ]
         }
     ]
 }

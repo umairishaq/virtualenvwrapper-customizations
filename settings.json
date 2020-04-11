@@ -1,6 +1,16 @@
 {
+    "editor.formatOnSave": true,
     "python.pythonPath": "/Users/umishaq/.pyenv/versions/3.7.2/envs/aws-detect-elasticsearch-open-access-policy-0.1.0/bin/python",
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.lintOnSave": true
+    "python.linting.lintOnSave": true,
+    "python.formatting.provider": "autopep8",
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.unittestEnabled": true,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-p",
+        "*_test.py"
+    ]
 }
