@@ -1,0 +1,5 @@
+[flake8]
+ignore = D202
+max-complexity = 7
+max-line-length = 120
+statistics = True

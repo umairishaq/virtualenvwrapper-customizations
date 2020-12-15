@@ -17,30 +17,30 @@
             "name": "Python: Specific File",
             "type": "python",
             "request": "launch",
-            // "env": {
-            //     "PYTHONPATH": "${workspaceFolder}/src/D3CandidationGenerationPython/src"
-            // },
-            "program": "${workspaceFolder}/setup.py",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src"
+            },
+            "program": "${workspaceFolder}/app.py",
             "console": "integratedTerminal",
-            "args": ["develop"],
+            // "args": ["develop"],
             "justMyCode": false,
             "stopOnEntry": false
         },
         {
-            "name": "Python: test",
+            "name": "Python: Unit Tests",
             "type": "python",
             "request": "launch",
-            // "env": {
-            //     "PYTHONPATH": "${workspaceFolder}/src/D3CandidationGenerationPython/src"
-            // },
-            "cwd": "${workspaceFolder}/src/D3CandidationGenerationPython",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src"
+            },
+            "cwd": "${workspaceFolder}/src/tests/",
             "console": "integratedTerminal",
             "module": "pytest",
             "justMyCode": false,
             "stopOnEntry": false,
-            "args": [
-                "--no-cov"
-            ]
+            // "args": [
+            //     "--no-cov"
+            // ]
         }
     ]
 }

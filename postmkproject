@@ -28,3 +28,19 @@ fi
 if [[ -n $VIRTUAL_ENV && -f "$REQUIREMENTS_SOURCE/launch.json" && -n .vscode ]]; then
     cp $REQUIREMENTS_SOURCE/launch.json .vscode/launch.json
 fi
+
+if [[ -n $VIRTUAL_ENV && -f "$REQUIREMENTS_SOURCE/.bandit" ]]; then
+    cp $REQUIREMENTS_SOURCE/.bandit ./
+fi
+
+if [[ -n $VIRTUAL_ENV && -f "$REQUIREMENTS_SOURCE/.flake8" ]]; then
+    cp $REQUIREMENTS_SOURCE/.flake8 ./
+fi
+
+if [[ -n $VIRTUAL_ENV && -f "$REQUIREMENTS_SOURCE/.pydocstyle" ]]; then
+    cp $REQUIREMENTS_SOURCE/.pydocstyle ./
+fi
+
+if [[ -n $VIRTUAL_ENV && -f "$REQUIREMENTS_SOURCE/.pylintrc" ]]; then
+    cp $REQUIREMENTS_SOURCE/.pylintrc ./
+fi

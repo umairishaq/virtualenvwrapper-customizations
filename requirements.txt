@@ -3,3 +3,7 @@ rope
 pep8
 flake8
 autopep8
+isort
+black
+mypy
+bandit
