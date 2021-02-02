@@ -14,8 +14,8 @@
     ".bandit"
   ],
   "python.sortImports.args": [
-    "-rc",
-    "--atomic"
+    "--atomic",
+    "--float-to-top"
   ],
   "[python]": {
     "editor.codeActionsOnSave": {
