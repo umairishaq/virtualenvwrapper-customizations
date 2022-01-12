@@ -2,7 +2,7 @@
 # This hook is run after a new project is activated.
 
 VENV_FILE_EXTENSION=.venv
-REQUIREMENTS_FILE=requirements.txt
+REQUIREMENTS_FILE=requirements-dev-tools.txt
 VENV_FILE_EXTENSION=.venv
 REQUIREMENTS_SOURCE=$WORKON_HOME/virtualenvwrapper-customizations
 
