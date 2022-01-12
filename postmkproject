@@ -5,6 +5,7 @@ VENV_FILE_EXTENSION=.venv
 REQUIREMENTS_FILE=requirements-dev-tools.txt
 VENV_FILE_EXTENSION=.venv
 REQUIREMENTS_SOURCE=$WORKON_HOME/virtualenvwrapper-customizations
+IPYKERNEL_REGISTER_SCRIPT=ipykernel_register.sh
 
 if [[ -n $VIRTUAL_ENV && ! -f "./$VENV_FILE_EXTENSION" ]]; then
     echo $(basename $VIRTUAL_ENV) > ./$VENV_FILE_EXTENSION
@@ -44,3 +45,8 @@ fi
 if [[ -n $VIRTUAL_ENV && -f "$REQUIREMENTS_SOURCE/.pylintrc" ]]; then
     cp $REQUIREMENTS_SOURCE/.pylintrc ./
 fi
+
+if [[ -n $VIRTUAL_ENV && -f "$REQUIREMENTS_SOURCE/IPYKERNEL_REGISTER_SCRIPT" ]]; then
+    cp $REQUIREMENTS_SOURCE/IPYKERNEL_REGISTER_SCRIPT ./
+fi
+

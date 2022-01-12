@@ -5,6 +5,7 @@ REQUIREMENTS_FILE=requirements-dev-tools.txt
 VENV_FILE_EXTENSION=.venv
 REQUIREMENTS_SOURCE=$WORKON_HOME/virtualenvwrapper-customizations
 PROJECT_LINK=$VIRTUAL_ENV/$VIRTUALENVWRAPPER_PROJECT_FILENAME
+IPYKERNEL_REGISTER_SCRIPT=ipykernel_register.sh
 
 if [[ -f "$PROJECT_LINK" ]]; then
 	PROJECT_FOLDER=$(cat $PROJECT_LINK)
@@ -29,6 +30,10 @@ if [[ -f "$PROJECT_LINK" ]]; then
 
 	if [[ -f "$REQUIREMENTS_SOURCE/launch.json" && -n $PROJECT_FOLDER/.vscode ]]; then
 		cp $REQUIREMENTS_SOURCE/launch.json $PROJECT_FOLDER/.vscode/launch.json
+	fi
+
+        if [[ -f "$REQUIREMENTS_SOURCE/IPYKERNEL_REGISTER_SCRIPT" ]]; then
+		cp $REQUIREMENTS_SOURCE/IPYKERNEL_REGISTER_SCRIPT $PROJECT_FOLDER/
 	fi
 fi
 
