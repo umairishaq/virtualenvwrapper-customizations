@@ -1,6 +1,6 @@
 {
   "editor.formatOnSave": true,
-  "python.pythonPath": "/Users/umishaq/.virtualenvs/lint-test/bin/python",
+  "python.defaultInterpreterPath": "/Users/umishaq/.virtualenvs/lint-test/bin/python",
   "python.linting.enabled": true,
   "python.linting.lintOnSave": true,
   "python.linting.flake8Enabled": true,
