@@ -8,4 +8,5 @@ black
 mypy
 bandit
 ipykernel
+flake8-bandit
 
